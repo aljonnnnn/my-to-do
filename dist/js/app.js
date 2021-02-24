@@ -1,7 +1,5 @@
 const append = document.querySelector('.todo__btn');
 
-
-
 // append list and span function 
 const addList = () => {
     const addItem = document.createElement("li");
@@ -51,3 +49,34 @@ if (event.target.tagName === 'SPAN') {
     event.target.parentElement.remove();
 }
 });
+
+
+// get date 
+const dayDisplay = document.querySelector('.date');
+const getDate = new Date();
+const day = getDate.getDay();
+console.log(day)
+
+switch (day) {
+    case 0:
+        dayDisplay.textContent = 'sunday'
+        break;
+    case 1:
+        dayDisplay.textContent = 'monday'
+        break;
+    case 2:
+        dayDisplay.textContent = 'tuesday'
+        break;
+    case 3:
+        dayDisplay.textContent = 'wednesday'
+        break;
+    case 4:
+        dayDisplay.textContent = 'thursday'
+        break;
+    case 5:
+        dayDisplay.textContent = 'friday'
+        break;
+    case 6:
+        dayDisplay.textContent = 'saturday'
+        break;
+}
