@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>to-do list</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        span {
+            margin-left: 20px;
+        }
+        
+        li.line {
+            text-decoration: line-through;
+        }
+
+        span.red {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <section class="todo">
+        <div class="todo__container">
+            <div class="todo__box">
+                <div class="todo__form">
+                    <input type="text" class="todo__input">
+                    <button class="todo__btn">+</button>
+                </div>
+                <ul class="todo___list">
+                    <li class="todo__item">task 1</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <script src="dist/js/app.js"></script>
+</body>
+</html>
