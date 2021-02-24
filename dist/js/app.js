@@ -8,6 +8,8 @@ const addList = () => {
     const input = document.querySelector('.todo__input').value;
     const textnode = document.createTextNode(input);
     addItem.appendChild(textnode);
+    addItem.classList.add('todo__item');
+
     const addRemove = document.createElement('span');
     addRemove.textContent = 'remove';
     document.querySelector('.todo__input').value = '';
@@ -15,7 +17,7 @@ const addList = () => {
     if (input !== '') {
         document.querySelector(".todo___list").append(addItem);
         // add span sa last item
-        document.querySelector(".todo___list").lastChild.appendChild(addRemove).classList.add('remove');
+        document.querySelector(".todo___list").lastChild.appendChild(addRemove).classList.add('todo__remove');
     }
 }
 
