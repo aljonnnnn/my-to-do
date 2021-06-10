@@ -99,9 +99,9 @@ body {
         font-size: 1rem;
         text-transform: capitalize;
         padding: 0.75rem 0.9375rem;
-        cursor: pointer;
+        display: flex;
 
-        &.line {
+        &.done {
             color: $white-line-color;
             text-decoration: line-through;
 
@@ -118,11 +118,13 @@ body {
         }
     }
 
+    &__task {
+        flex: 1;
+        cursor: pointer;
+    }
+
     &__remove {
-        position: absolute;
-        top: 50%;
-        right: 0.9375rem;
-        transform: translateY(-50%);
+        cursor: pointer;
         font-size: 0.75rem;
         transition: all 0.3s ease;
         opacity: 0;
