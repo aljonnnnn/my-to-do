@@ -1,6 +1,15 @@
-import addTodo from "../../utils/addTodo"
+import { useState } from "react"
 
-const TodoForm = ({todos, task, setTodos, setTask}) => {
+const TodoForm = ({dispatch}) => {
+    const [task, setTask] = useState('')
+
+    const addTodo = () => {
+        if (task) {
+            dispatch({type: 'ADD_TODO', payload: task})
+            setTask('')
+        }
+    }
+    
     return (
         <div className="todo__form">
             <input type="text" 
@@ -10,7 +19,7 @@ const TodoForm = ({todos, task, setTodos, setTask}) => {
                 className="todo__input" 
             />
             <button 
-                onClick={() => addTodo(todos, task, setTodos, setTask)}
+                onClick={addTodo}
                 className="todo__btn">
                 +
             </button>
