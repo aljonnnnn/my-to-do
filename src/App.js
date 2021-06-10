@@ -1,4 +1,4 @@
-import Todo from './components/Todo';
+import Todo from './components/Todo/Todo'
 import './styles/css/main.min.css'
 
 function App() {
