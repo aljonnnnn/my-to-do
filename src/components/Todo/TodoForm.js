@@ -1,25 +1,34 @@
 import { useState } from "react"
+import { connect } from "react-redux"
+import { addTodo } from "../../redux/todos/todoActions"
 
-const TodoForm = ({dispatch}) => {
+const TodoForm = ({addTodo}) => {
     const [task, setTask] = useState('')
 
-    const addTodo = () => {
+    const clickAddTodo = () => {
         if (task) {
-            dispatch({type: 'ADD_TODO', payload: task})
+            addTodo(task)
+            setTask('')
+        }
+    }
+    const keyPressAddTodo = (e) => {
+        if (e.key === 'Enter') {
+            addTodo(task)
             setTask('')
         }
     }
     
     return (
         <div className="todo__form">
-            <input type="text" 
+            <input type="text"
+                onKeyPress={keyPressAddTodo} 
                 value={task} 
                 onChange={(e) => setTask(e.target.value)} 
                 placeholder="Add New Todo" 
                 className="todo__input" 
             />
             <button 
-                onClick={addTodo}
+                onClick={clickAddTodo}
                 className="todo__btn">
                 +
             </button>
@@ -27,4 +36,10 @@ const TodoForm = ({dispatch}) => {
     )
 }
 
-export default TodoForm
+const mapDispatchToProps = dispatch => {
+    return {
+        addTodo: (task) => dispatch(addTodo(task))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(TodoForm)

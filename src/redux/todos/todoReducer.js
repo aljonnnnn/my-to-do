@@ -1,42 +1,44 @@
-export const initalTodosState = [
+import { ADD_TODO, DELETE_TODO, TOGGLE_TODO } from "./todoTypes"
+
+const initialState = [
     {
         id: 1,
         task: 'Learn Redux',
-        complete: true
+        done: false
     },
     {
         id: 2,
         task: 'Learn Tailwind',
-        complete: false
+        done: false
     },
     {
         id: 3,
         task: 'Learn Next js',
-        complete: false
+        done: false
     },
     {
         id: 4,
         task: 'Learn TypeScript',
-        complete: false
+        done: false
     }
 ]
+// asdad
 
-
-export const todosReducer = (state, action) => {
+export const todoReducer = (state = initialState, action) => {
     switch(action.type) {
-        case 'ADD_TODO':
+        case ADD_TODO:
             return [
                 ...state,
                 {
                     id: Math.floor(Math.random() * 5000),
                     task: action.payload,
-                    complete: false
+                    done: false
                 }
             ]
-        case 'DELETE_TODO':
+        case DELETE_TODO:
             return state.filter(todo => todo.id !== action.payload)
-        case 'TOGGLE_TODO':
-            return state.map(todo => todo.id === action.payload ? {...todo, complete: !todo.complete} : todo)
+        case TOGGLE_TODO:
+            return state.map(todo => todo.id === action.payload ? {...todo, done: !todo.done} : todo)
         default: return state
     }
 }
