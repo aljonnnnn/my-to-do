@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { useDispatch } from "react-redux"
-import { addTodo } from "../../redux/todos/todoActions"
+import { addTodo } from "../../redux/todos/todoSlice"
 
 const TodoForm = () => {
     const [task, setTask] = useState('')
